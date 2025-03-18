@@ -4,52 +4,207 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trang Web Phạm Bình Đoàn</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    background-color: #ebebeb;
+    background-size: 300% 300%;
+    animation: gradientAnimation 6s ease infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+@keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.card {
+    background-color: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 24px;
+    width: 100%;
+    max-width: 600px;
+    position: relative;
+    overflow: hidden;
+}
+
+.button {
+    display: block;
+    width: 100%;
+    background: linear-gradient(45deg, #ececec, #dddddd, #bebebe);
+    color: rgb(255, 0, 0);
+    padding: 10px;
+    border: none;
+    border-radius: 16px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.01s;
+    font-weight: bold;
+}
+
+.button:hover {
+    font-weight: bold;
+    color: rgb(68, 0, 255);
+    background-color: #59ff43;
+}
+
+.button:active {
+    background-color: #9333ea;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.link-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+a { text-decoration: none; color: inherit; transition: color 0.3s; }
+a:active { color: #9333ea; }
+
+.rainbow-text {
+    background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+p {
+    color: #6b7280;
+    margin-bottom: 16px;
+}
+img {
+    width: 300px;
+    height: 300px;
+    border-radius: 12px;
+    margin-bottom: 12px;
+}
+h3{
+    background: linear-gradient(45deg, #5d88ff, #d9b0ff, #c0d4ff);
+    color: white;
+    padding: 10px;
+    border-radius: 8px;
+}
+    </style>
 </head>
 <body>
     <div class="card">
         <h1 class="rainbow-text" style="text-align: center;">
             <a href="http://example.com" target="_blank">Phạm Bình Đoàn - example.com</a>
         </h1>
-
         <div style="text-align: center;">
             <h3>https://kntios.github.io/trang/</h3>
             <img src="https://kntios.github.io/trang/icon/qr.png" alt="QR Code" class="qr-image">
         </div>
-
         <div class="button-container">
             <button class="button copy-button" data-original-text="ID Apple Japan 1" onclick="copyText('adrianmunoz99@icloud.com Mnbv321321@')">ID Apple Japan 1</button>
             <button class="button copy-button" data-original-text="ID Apple Japan 2" onclick="copyText('adrianmunoz99@icloud.com Mnbv321321@')">ID Apple Japan 2</button>
             <button class="button copy-button" data-original-text="ID Apple Japan 3" onclick="copyText('adrianmunoz99@icloud.com Mnbv321321@')">ID Apple Japan 3</button>
         </div>
-
         <div class="button-container">
             <button class="button copy-button" data-original-text="PIA 1" onclick="copyText('p8043498 7GPM69zUhr')">PIA 1</button>
             <button class="button copy-button" data-original-text="PIA 2" onclick="copyText('p7355906 c4aQtXYck9')">PIA 2</button>
             <button class="button copy-button" data-original-text="PIA 3" onclick="copyText('p4473250 E7jk5MAabB')">PIA 3</button>
         </div>
-
         <div class="button-container">
             <a href="https://www.icloud.com/shortcuts/41005f1838684245b4d256da082532a9" class="button" target="_blank">Shortcut 30p</a>
             <a href="https://www.icloud.com/shortcuts/17b0a2589825439aa71e7bf1d4fd7d43" class="button" target="_blank">Shortcut 60p</a>
         </div>
-
         <div class="button-container">
             <a href="/data/Jailbreak.zip" class="button" target="_blank">File Jailbreak</a>
             <a href="/data/Settings.zip" class="button" target="_blank">File Cài Đặt</a>
         </div>
-
         <div class="button-container">
             <a href="https://trollstore.bio.link" class="button" target="_blank">Cài đặt TrollStore</a>
             <a href="/image/qrcode_chrome.png" class="button" target="_blank">QR</a>
             <a href="https://github.com/Lessica/TrollFools/releases" class="button" target="_blank">Update TrollFood</a>
         </div>
-
         <div style="text-align: center;">
             <h3>https://kieunhutrung1.github.io/ios/</h3>
             <img src="https://kieunhutrung1.github.io/ios/icon/qr.png" alt="QR Code" class="qr-image">
         </div>
     </div>
-    <script src="script.js"></script>
+    <script>
+function copyText(text) {
+    const textarea = document.createElement('textarea');
+    document.body.appendChild(textarea);
+    textarea.value = text;
+    textarea.select();
+    document.execCommand('copy');
+    document.body.removeChild(textarea);
+    const copyButton = event.target;
+    copyButton.innerText = 'Sao chép!';
+    copyButton.style.backgroundColor = '#16a34a';
+    setTimeout(() => {
+        copyButton.innerText = copyButton.getAttribute('data-original-text');
+        copyButton.style.backgroundColor = '#2563eb';
+    }, 5000);
+}
+
+function generateBookmarklet() {
+    const deviceIdsInput = document.getElementById("deviceIdsInput").value.trim();
+    if (!deviceIdsInput) {
+        alert("Vui lòng nhập ít nhất một deviceID.");
+        return;
+    }
+    const deviceIDs = deviceIdsInput.split('\n').map(id => id.trim()).filter(id => id !== "");
+    const now = new Date();
+    const timestamp = `${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')} ${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}:${String(now.getSeconds()).padStart(2, '0')}`;
+    let bookmarkletCode = `javascript:(function(){\n`;
+    bookmarkletCode += `    const deviceIDs = ${JSON.stringify(deviceIDs)};\n`;
+    bookmarkletCode += `    const timestamp = "${timestamp}";\n`;
+    bookmarkletCode += `    deviceIDs.forEach((deviceID, index) => {\n`;
+    bookmarkletCode += `        const backupName = \`M\${index + 1} \${timestamp}\`;\n`;
+    bookmarkletCode += `        fetch(\`https://ifake.pro/manager/device/\${deviceID}/sessions\`, {\n`;
+    bookmarkletCode += `            headers: { accept: "*/*", "content-type": "application/x-www-form-urlencoded; charset=UTF-8" },\n`;
+    bookmarkletCode += `            body: \`action=backup&name=\${backupName}\`,\n`;
+    bookmarkletCode += `            method: "POST",\n`;
+    bookmarkletCode += `            mode: "cors",\n`;
+    bookmarkletCode += `            credentials: "include"\n`;
+    bookmarkletCode += `        }).then(() => {\n`;
+    bookmarkletCode += `            console.log(\`✅ Tiến hành backup với tên: \${backupName}\`);\n`;
+    bookmarkletCode += `            setTimeout(() => {\n`;
+    bookmarkletCode += `                fetch(\`https://ifake.pro/manager/device/\${deviceID}/tools\`, {\n`;
+    bookmarkletCode += `                    headers: { accept: "*/*", "content-type": "application/x-www-form-urlencoded; charset=UTF-8" },\n`;
+    bookmarkletCode += `                    body: "action=fake_clean",\n`;
+    bookmarkletCode += `                    method: "POST",\n`;
+    bookmarkletCode += `                    mode: "cors",\n`;
+    bookmarkletCode += `                    credentials: "include"\n`;
+    bookmarkletCode += `                }).then(() => console.log(\`✅ DeviceID \${deviceID} đã được làm sạch\`));\n`;
+    bookmarkletCode += `            }, 3000);\n`;
+    bookmarkletCode += `        }).catch(err => console.error("Error:", err));\n`;
+    bookmarkletCode += `    });\n`;
+    bookmarkletCode += `})();`;
+
+    document.getElementById("bookmarkletOutput").value = bookmarkletCode;
+    document.getElementById("output").style.display = "block";
+}
+
+function copyBookmarklet() {
+    const bookmarkletOutput = document.getElementById("bookmarkletOutput");
+    bookmarkletOutput.select();
+    document.execCommand("copy");
+    alert("Bookmarklet đã được sao chép!");
+}
+    </script>
 </body>
 </html>
